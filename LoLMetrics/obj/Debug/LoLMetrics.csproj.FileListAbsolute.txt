@@ -1,0 +1,9 @@
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\LoLMetrics.dll.config
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\LoLMetrics.dll
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\LoLMetrics.pdb
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\obj\Debug\LoLMetrics.csproj.CoreCompileInputs.cache
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\obj\Debug\LoLMetrics.dll
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\obj\Debug\LoLMetrics.pdb
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\obj\Debug\LoLMetrics.csprojResolveAssemblyReference.cache
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\Newtonsoft.Json.dll
+C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\Newtonsoft.Json.xml

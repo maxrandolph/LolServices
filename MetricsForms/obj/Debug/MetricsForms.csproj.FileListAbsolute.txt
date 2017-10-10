@@ -1,0 +1,17 @@
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\MetricsForms.exe.config
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\MetricsForms.exe
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\MetricsForms.pdb
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.csprojResolveAssemblyReference.cache
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.Form1.resources
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.Properties.Resources.resources
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.csproj.GenerateResource.Cache
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.csproj.CoreCompileInputs.cache
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.exe
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\obj\Debug\MetricsForms.pdb
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\LoLMetrics.dll
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\LoLMetrics.pdb
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\LoLMetrics.dll.config
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\AutoMapper.dll
+C:\Users\Andy\Source\repos\LOLMetrics\MetricsForms\bin\Debug\AutoMapper.xml
