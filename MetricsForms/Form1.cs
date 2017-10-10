@@ -29,8 +29,8 @@ namespace MetricsForms
         {
             string summoner = summonerName.Text.ToString();
             var client = new ServiceCalls();
-            var result = client.GetMatches(summoner);
-            resultsDisplay.Text = result.ToString();
+            var result = client.GetSummoner(summoner);
+            resultsDisplay.Text = result.SummonerLevel.ToString();
 
         }
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using LolServiceClient = LoLMetrics.LolService;
 using MetricsForms.Models;
 using AutoMapper;
+using LoLMetrics.Models;
+using Summoner = MetricsForms.Models.Summoner;
+using Match = MetricsForms.Models.Match;
 
 namespace MetricsForms.Controllers
 {
@@ -13,14 +16,19 @@ namespace MetricsForms.Controllers
     {
         public Summoner GetSummoner(string summoner)
         {
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<LoLMetrics.Models.Summoner, Summoner>();
+            });
             LolServiceClient client = new LolServiceClient();
             var tempSummoner = client.GetSummonerByName(summoner);
             Summoner result = Mapper.Map<Summoner>(tempSummoner);
-
             return result;
         }
         public Match GetMatches(string summoner)
         {
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<LoLMetrics.Models.Match, Match>();
+            });
             LolServiceClient client = new LolServiceClient();
             var matches = client.GetMatchesById(summoner);
             Match result = Mapper.Map<Match>(matches);

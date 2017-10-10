@@ -37,6 +37,10 @@ namespace LoLMetrics
             return result;
 
         }
+ //       public Champion GetChampionById (int id)
+  //      {
+
+    //    }
 
         public string GetData(string summoner, string url)
         {
@@ -72,5 +76,10 @@ namespace LoLMetrics
             Uri url = new Uri(getMatchesUrl + summonerId + apiKey);
             return url;
         }
+     //   public static Uri BuildChampionUrl(int id)
+     //   {
+         //   string getChampionUrl = "https://na1.api.riotgames.com/lol/static-data/v3/champions/";
+//}
+        
     }
 }
