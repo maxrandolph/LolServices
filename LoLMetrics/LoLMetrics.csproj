@@ -75,7 +75,7 @@
     <Compile Include="LolService.svc.cs">
       <DependentUpon>LolService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Models\Match.cs" />
+    <Compile Include="Models\Matches.cs" />
     <Compile Include="Models\Summoner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
