@@ -7,3 +7,12 @@ C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\obj\Debug\LoLMetrics.pdb
 C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\obj\Debug\LoLMetrics.csprojResolveAssemblyReference.cache
 C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\Newtonsoft.Json.dll
 C:\Users\Andy\Source\repos\LOLMetrics\LoLMetrics\bin\Newtonsoft.Json.xml
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\bin\LoLMetrics.dll.config
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\bin\LoLMetrics.dll
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\bin\LoLMetrics.pdb
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\bin\Newtonsoft.Json.dll
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\bin\Newtonsoft.Json.xml
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\obj\Debug\LoLMetrics.csprojResolveAssemblyReference.cache
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\obj\Debug\LoLMetrics.csproj.CoreCompileInputs.cache
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\obj\Debug\LoLMetrics.dll
+C:\Users\maxra\Documents\LolMetrics\LolServices\LoLMetrics\obj\Debug\LoLMetrics.pdb
