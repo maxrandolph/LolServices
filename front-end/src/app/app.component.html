@@ -3,9 +3,34 @@
   <span>Reddit Title Analyzer</span>
 
 </mat-toolbar> -->
-<div fxLayout="column">
+<mat-toolbar style="background-color:#D3E9FB; box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);">
+  <div id="header-image"></div>
+</mat-toolbar>
 
+<div style="width:100%; height:100%">
+
+  <div fxFlex="100%">
+    <div fxLayout="column" fxFlex="40%" style="height:400px; margin-left:auto; margin-right:auto; margin-top:360px; ">
+
+      <mat-card class="search-box" fxFlex="40%" [ngClass]="hover ? 'mat-elevation-z24 moveup' : 'mat-elevation-z2 movedown'">
+        <mat-card-content>
+          <div fxLayout="column" class="search-area">
+            <h2 style="text-align:center">Enter Summoner Name:</h2>
+            <div fxLayout="row">
+              <mat-form-field style="text-align:center;" fxFlex="95%">
+                <span matPrefix><mat-icon>search</mat-icon>&nbsp;&nbsp;&nbsp;</span>
+                <input  matInput placeholder="Summoner Name" style="width:100%" (focus)="hoverMe()" (focusout)="hoverMe()">
+              </mat-form-field>
+              <button matSuffix mat-icon-button fxFlex="5%">
+                      <mat-icon>forward</mat-icon>
+                    </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <!-- 
   <mat-card  class="main-input">
+    
     <div class="mat-card-header" style="width:100%;">
       <mat-card-title style="width:100%; border-radius: 5px 5px 0 0;" id="header">
         <div id="header-image"></div>
@@ -13,10 +38,11 @@
       </mat-card-title>
     </div>
     <router-outlet></router-outlet>
-  </mat-card>
+  </mat-card> -->
 
 
 
-  <mat-divider>
-  </mat-divider>
-</div>
+      <mat-divider>
+      </mat-divider>
+    </div>
+  </div>

@@ -5,51 +5,68 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-.main-input{
-    /* width:75%; */
-    height:640px;
-    /* margin-left:auto;
+
+.main-input {
+  /* width:75%; */
+  height: 640px;
+  /* margin-left:auto;
     margin-right:auto; */
-    /* margin-top: 24px; */
-    margin-bottom: 24px;
+  /* margin-top: 24px; */
+  margin-bottom: 24px;
 }
-.full-width{
-    width:100%;
+
+.full-width {
+  width: 100%;
 }
-.go-button{
-  height:64px;
+
+.go-button {
+  height: 64px;
   font-size: 32px;
 }
+
 :host /deep/ .mat-input-placeholder {
   text-align: center;
 }
 
-.example-form{
+.moveup {
+  transform: scale(1.05);
+  transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow .5s;
+}
 
+.movedown {
+  transform: scale(.95);
+  transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow .5s;
 }
-.form-inputs{
-  max-height:148px; 
-  min-height:148px; 
-  width:75%; 
-  margin-left:auto; 
-  margin-right:auto; 
-  text-align:center;
+
+.example-form {}
+
+.mat-input {
+  text-align: center;
 }
-#header{
+
+.form-inputs {
+  max-height: 148px;
+  min-height: 148px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#header {
   border-bottom: 1px solid #14CBCE;
   position: relative;
   background-color: #45A0FB;
   z-index: 99;
-
   width: 100%;
 }
-#header-image{ 
+
+#header-image {
   text-indent: -9999px;
   background-image: url('/assets/sprite.png');
   background-size: 150px;
   background-position-y: 10px;
   background-position-x: 5px;
-
   background-repeat: no-repeat;
   height: 50px;
   width: 155px;
@@ -58,16 +75,18 @@
   margin-bottom: 3px;
   z-index: 1000;
 }
-.mat-card-header-text{
+
+.mat-card-header-text {
   margin: 0 0 0 0;
   /* border-radius:5px; */
-  
 }
-.mat-card{
-  padding:0 0 0 0;
+
+.mat-card {
+  /* padding:0 0 0 0; */
   /* border-radius:5px; */
 }
-.header-text{
+
+.header-text {
   font-weight: bold;
   margin-right: 1ex;
   font-variant: small-caps;
@@ -77,12 +96,13 @@
   font-size: 1.2em;
   vertical-align: bottom;
 }
-.preview-box{
+
+.preview-box {
   background-image: url('/assets/preview.png');
   background-repeat: no-repeat;
-  
 }
-#preview-text{
+
+#preview-text {
   width: auto;
   position: relative;
   left: 150px;
