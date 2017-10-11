@@ -17,7 +17,10 @@ export class DataResultsComponent {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit(): void {
-    this._summonerService.getSummoner('slapstrap').subscribe(data =>
+    let query;
+    this.activatedRoute.params.subscribe(params => query = params['query']);
+    console.log(query);
+    this._summonerService.getSummoner(query.replace(/\s/g, '')).subscribe(data =>
       this.processSummoner(data)
     );
   }
