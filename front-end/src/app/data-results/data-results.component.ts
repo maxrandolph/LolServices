@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Summoner } from '../shared/app.config';
+import { SummonerService } from '../summoner.service';
 
 
 @Component({
@@ -9,17 +11,20 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   templateUrl: './data-results.component.html'
 })
 export class DataResultsComponent {
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
-  summoner: any;
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private _summonerService: SummonerService) { }
+  summoner: Summoner = new Summoner('', '', '', '', '', '');
+  result: any;
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      const query = params['query'];
-      this.http.get('http://localhost:5000/api/values/' + query).subscribe(data => {
-        this.summoner = data;
-        console.log(data);
-      });
-    });
+    this._summonerService.getSummoner('slapstrap').subscribe(data =>
+      this.processSummoner(data)
+    );
+  }
+
+  private processSummoner(summoner) {
+    this.summoner = summoner;
+    console.log(this.summoner);
+    return true;
   }
 }
