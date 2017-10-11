@@ -10,61 +10,16 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class DataResultsComponent {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { }
-  titleShared: any;
-  results: any;
-  profile = {};
-  topPostsUps = 10430;
-  averageTopTenUps = 2451;
-  yourProjectedUps = 700;
-  ratingConfidence = '87.8%';
-  pieChartType = 'doughnut';
+  summoner: any;
+
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params) => {
-      console.log(params);
-      let query = params['query'];
-      console.log(query);
-
-      this.http.get('http://54.197.149.55:5000/rating/' + query).subscribe(data => {
+      const query = params['query'];
+      this.http.get('http://localhost:5000/api/values/' + query).subscribe(data => {
+        this.summoner = data;
         console.log(data);
-        let whatever = Number(data)
-        this.yourProjectedUps = Math.floor(whatever)-395;
-        this.yourProjectedUps = this.yourProjectedUps < 0 ? 0 : this.yourProjectedUps;
-        this.pieChartData[2] = this.yourProjectedUps;
-        console.log(this.yourProjectedUps);
       });
-    })
-  }
-  getData() {
-    this.http.get('https://www.reddit.com/r/news/top/.json?limit=10').subscribe(data => {
-      // Read the result field from the JSON response.
-      this.results = data;
-      console.log(this.results.data.children.i.score);
-      this.averageTopTenUps = 0;
-      let i = 0
-      for (i = 0; i < 9; i += 1) {
-        this.results.data.children += 1;
-      }
-
-
     });
-
   }
-
-
-  // Pie
-  public pieChartLabels: string[] = ['Top Post Ups', 'Avg(Top Ten Posts)', 'Your Projected Upvotes'];
-  public pieChartData: number[] = [this.topPostsUps, this.averageTopTenUps, this.yourProjectedUps];
-
-  public randomizeType(): void {
-    this.pieChartType = this.pieChartType === 'doughnut' ? 'pie' : 'doughnut';
-  }
-
-  public chartClicked(e: any): void {
-    console.log(e);
-  }
-
-  public chartHovered(e: any): void {
-    console.log(e);
-  }
-
 }

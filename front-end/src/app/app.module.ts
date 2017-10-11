@@ -14,7 +14,7 @@ import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http/';
 const appRoutes: Routes = [
   { path: 'start', component: StartPageComponent },
-  { path: 'results/:query', component: DataResultsComponent },
+  { path: 'summoner/:query', component: DataResultsComponent },
  { path: '**', component: StartPageComponent }
 ];
 

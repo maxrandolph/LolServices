@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('reddit-title-analyzer App', () => {
+describe('lol-metric App', () => {
   let page: AppPage;
 
   beforeEach(() => {
