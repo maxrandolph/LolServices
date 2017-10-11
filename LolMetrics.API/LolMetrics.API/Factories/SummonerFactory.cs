@@ -11,7 +11,7 @@ using LolMetrics.API.Classes;
 
 namespace LolMetrics.API.Factories
 {
-    public class DataFactory
+    public class SummonerFactory
     {
         static string apiKey = "?api_key=RGAPI-fafe2860-801e-49f7-994c-7a8209839935";
 

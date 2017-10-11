@@ -11,7 +11,7 @@ namespace LolMetrics.API.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        DataFactory myFactory = new DataFactory();
+        SummonerFactory myFactory = new SummonerFactory();
         
         // GET api/values
         [HttpGet]
