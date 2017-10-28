@@ -12,9 +12,10 @@ import { DataResultsComponent } from './data-results/data-results.component';
 import { ChartsModule } from 'ng2-charts';
 import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http/';
+import { SummonerService } from './summoner.service';
 const appRoutes: Routes = [
   { path: 'start', component: StartPageComponent },
-  { path: 'results/:query', component: DataResultsComponent },
+  { path: 'summoner/:query', component: DataResultsComponent },
  { path: '**', component: StartPageComponent }
 ];
 
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule],
   providers: [StartPageComponent,
     DataResultsComponent,
-    FormsModule],
+    FormsModule,
+  SummonerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

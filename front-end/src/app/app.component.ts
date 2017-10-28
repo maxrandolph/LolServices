@@ -11,11 +11,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   title = 'app';
-  hover = false;
-  hoverMe() {
-    this.hover = !this.hover;
-    console.log(this.hover);
-  }
+
   keepFocus(event) {
     event.stopPropogation();
   }
