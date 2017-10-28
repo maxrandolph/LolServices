@@ -13,7 +13,7 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-fafe2860-801e-49f7-994c-7a8209839935";
+        static string apiKey = "?api_key=RGAPI-8eba60af-8790-4a13-96c3-fc9a445f260d";
 
         public string GetSummonerByName(string summoner)
         {
@@ -32,6 +32,14 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.DeserializeObject<Matches>(resultString);
             return result;
 
+        }
+        public Champion GetChampionById(int id)
+        {
+            var url = BuildChampionUrl(id);
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Champion>(resultString);
+            return result;
         }
 
         public string GetData(string summoner, string url)
@@ -66,6 +74,12 @@ namespace LolMetrics.API.Factories
         {
             string getMatchesUrl = "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/";
             Uri url = new Uri(getMatchesUrl + summonerId + apiKey);
+            return url;
+        }
+        public static Uri BuildChampionUrl(int id)
+        {
+            string getChampionUrl = "https://na1.api.riotgames.com/lol/platform/v3/champions/";
+            Uri url = new Uri(getChampionUrl + id + apiKey);
             return url;
         }
     }
