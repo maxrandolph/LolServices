@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
+using LolMetrics.API.Factories;
 
 namespace LolMetrics.API.Classes
 {
@@ -20,6 +21,11 @@ namespace LolMetrics.API.Classes
 
     public class Match
     {
+        private Champion champ;
+
+        public Match()
+        {
+        }
         [JsonProperty("lane")]
         public string Lane { get; set; }
         [JsonProperty("gameId")]
@@ -36,5 +42,6 @@ namespace LolMetrics.API.Classes
         public string Role { get; set; }
         [JsonProperty("timestamp")]
         public long Timestamp { get; set; }
+        public string ChampionName { get; set; }
     }
 }

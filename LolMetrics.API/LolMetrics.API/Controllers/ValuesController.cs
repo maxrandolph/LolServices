@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LolMetrics.API.Classes;
 using LolMetrics.API.Factories;
+using Newtonsoft.Json;
+using LolMetrics.API.BL;
 
 namespace LolMetrics.API.Controllers
 {
@@ -12,6 +14,7 @@ namespace LolMetrics.API.Controllers
     public class ValuesController : Controller
     {
         SummonerFactory myFactory = new SummonerFactory();
+        SummonerLogic myLogic = new SummonerLogic();
         
         // GET api/values
         [HttpGet]
@@ -24,7 +27,7 @@ namespace LolMetrics.API.Controllers
         [HttpGet("{name}")]
         public string Get(string name)
         {
-            return myFactory.GetSummonerByName(name).ToString();
+            return JsonConvert.SerializeObject( myLogic.GetMatchHistory(name)).ToString();
         }
 
         // POST api/values

@@ -13,7 +13,8 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-8eba60af-8790-4a13-96c3-fc9a445f260d";
+        static string apiKey = "?api_key=RGAPI-4d2ed532-6f02-44b3-9634-04c0f89f2c54";
+        static string apiKeyParams = "api_key=RGAPI-4d2ed532-6f02-44b3-9634-04c0f89f2c54";
 
         public string GetSummonerByName(string summoner)
         {
@@ -23,7 +24,7 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.SerializeObject(resultString);
             return result;
         }
-        public Matches GetMatchesById(string summoner)
+        public Matches GetMatchesBySummoner(string summoner)
         {
             Summoner tempSummoner = JsonConvert.DeserializeObject<Summoner>(GetSummonerByName(summoner));
             var url = BuildMatchesUrl(tempSummoner.AccountId.ToString());
@@ -41,6 +42,14 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.DeserializeObject<Champion>(resultString);
             return result;
         }
+        public Matches GetMatchesById(string id)
+        {
+            var url = BuildMatchesUrl(id);
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Matches>(resultString);
+            return result;
+        }
 
         public string GetData(string summoner, string url)
         {
@@ -48,6 +57,14 @@ namespace LolMetrics.API.Factories
             var response = Get(uri);
             var result = ReadAsString(response);
             return result.ToString();
+        }
+        public AllChampions GetAllChampions()
+        {
+            var url = BuildChampionUrl();
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<AllChampions>(resultString);
+            return result;
         }
         public HttpResponseMessage Get(Uri uri)
         {
@@ -78,8 +95,17 @@ namespace LolMetrics.API.Factories
         }
         public static Uri BuildChampionUrl(int id)
         {
-            string getChampionUrl = "https://na1.api.riotgames.com/lol/platform/v3/champions/";
-            Uri url = new Uri(getChampionUrl + id + apiKey);
+            string getChampionUrl = "https://na1.api.riotgames.com/lol/static-data/v3/champions/";
+            string locale = "?locale=en_US&";
+            Uri url = new Uri(getChampionUrl + id + locale + apiKeyParams);
+            return url;
+        }
+        public static Uri BuildChampionUrl()
+        {
+            string getChampionUrl = "https://na1.api.riotgames.com/lol/static-data/v3/champions";
+            string locale = "?locale=en_US&";
+            string dataSort = "dataById=true&";
+            Uri url = new Uri(getChampionUrl + locale + dataSort + apiKeyParams);
             return url;
         }
     }
