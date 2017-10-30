@@ -1,2 +1,2 @@
 # LolServices
-a WCF service for consuming statistics compiled from the Riot API
+an ASP.NET service for consuming statistics compiled from the Riot API
