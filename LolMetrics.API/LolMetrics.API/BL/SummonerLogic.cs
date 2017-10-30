@@ -11,13 +11,13 @@ namespace LolMetrics.API.BL
     {
         public Matches GetMatchHistory(string summoner)
         {
-            SummonerFactory factory = new SummonerFactory();
-            Matches matches = factory.GetMatchesById(summoner);
-            Champions champions = factory.GetChampions();
+            var factory = new SummonerFactory();
+            var matches = factory.GetMatchesById(summoner);
+            var champions = factory.GetChampions();
 
             foreach (Match match in matches.MatchStats)
             {
-                Champion tempChampion = new Champion();
+                var tempChampion = new Champion();
                 if(champions.ChampionsList.TryGetValue(match.Champion.ToString(), out tempChampion))
                 {
                     match.ChampionName = tempChampion.Name;
@@ -30,6 +30,18 @@ namespace LolMetrics.API.BL
            
             }
             return matches;
+        }
+        public StaticData GetStaticData()
+        {
+            var staticData = new StaticData();
+            var factory = new SummonerFactory();
+
+            staticData.Champions.Add(factory.GetChampions());
+            staticData.Items.Add(factory.GetItems());
+            staticData.Runes.Add(factory.GetRunes());
+            staticData.Masteries.Add(factory.GetMasteries());
+
+            return staticData;
         }
     }
 }

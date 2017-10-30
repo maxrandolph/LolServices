@@ -13,8 +13,8 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-4d2ed532-6f02-44b3-9634-04c0f89f2c54";
-        static string apiKeyParams = "api_key=RGAPI-4d2ed532-6f02-44b3-9634-04c0f89f2c54";
+        static string apiKey = "?api_key=RGAPI-be38cbac-21c1-4bab-98d5-bac7073f7b09";
+        static string apiKeyParams = "api_key=RGAPI-be38cbac-21c1-4bab-98d5-bac7073f7b09";
 
         public string GetSummonerByName(string summoner)
         {
@@ -77,12 +77,20 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.DeserializeObject<Items>(resultString);
             return result;
         }
-        public Masteries GetMasteries()
+        public MasteryList GetMasteries()
         {
             var url = BuildMasteriesUrl();
             var response = Get(url);
             var resultString = ReadAsString(response);
-            var result = JsonConvert.DeserializeObject<Masteries>(resultString);
+            var result = JsonConvert.DeserializeObject<MasteryList>(resultString);
+            return result;
+        }
+        public Runes GetRunes()
+        {
+            var url = BuildRunesUrl();
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Runes>(resultString);
             return result;
         }
 
@@ -161,6 +169,13 @@ namespace LolMetrics.API.Factories
             string getMasteriesUrl = "https://na1.api.riotgames.com/lol/static-data/v3/masteries";
             string locale = "?locale=en_US&tags=all&";
             Uri url = new Uri(getMasteriesUrl + locale + apiKeyParams);
+            return url;
+        }
+        public static Uri BuildRunesUrl()
+        {
+            string getRunesUrl = "https://na1.api.riotgames.com/lol/static-data/v3/runes";
+            string locale = "?locale=en_US&tags=all&";
+            Uri url = new Uri(getRunesUrl + locale + apiKeyParams);
             return url;
         }
 
