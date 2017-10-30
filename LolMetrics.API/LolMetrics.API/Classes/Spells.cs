@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace LolMetrics.API.Classes
 {
-    public class Spell
+    public class Spells
     {
         [JsonProperty("cooldownBurn")]
         public string CooldownBurn { get; set; }

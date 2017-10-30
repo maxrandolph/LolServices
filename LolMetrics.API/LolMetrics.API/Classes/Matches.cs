@@ -21,11 +21,6 @@ namespace LolMetrics.API.Classes
 
     public class Match
     {
-        private Champion champ;
-
-        public Match()
-        {
-        }
         [JsonProperty("lane")]
         public string Lane { get; set; }
         [JsonProperty("gameId")]

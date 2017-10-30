@@ -13,12 +13,12 @@ namespace LolMetrics.API.BL
         {
             SummonerFactory factory = new SummonerFactory();
             Matches matches = factory.GetMatchesById(summoner);
-            AllChampions champions = factory.GetAllChampions();
+            Champions champions = factory.GetChampions();
 
             foreach (Match match in matches.MatchStats)
             {
                 Champion tempChampion = new Champion();
-                if(champions.Champions.TryGetValue(match.Champion.ToString(), out tempChampion))
+                if(champions.ChampionsList.TryGetValue(match.Champion.ToString(), out tempChampion))
                 {
                     match.ChampionName = tempChampion.Name;
 

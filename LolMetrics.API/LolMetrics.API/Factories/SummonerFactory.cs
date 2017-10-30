@@ -51,21 +51,34 @@ namespace LolMetrics.API.Factories
             return result;
         }
 
-        public string GetData(string summoner, string url)
+        public Matches GetMatchesInfoById(string id)
         {
-            Uri uri = new Uri(url + summoner + apiKey);
-            var response = Get(uri);
-            var result = ReadAsString(response);
-            return result.ToString();
+            var url = BuildMatchesUrl(id);
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Matches>(resultString);
+            return result;
         }
-        public AllChampions GetAllChampions()
+        public Champions GetChampions()
         {
             var url = BuildChampionUrl();
             var response = Get(url);
             var resultString = ReadAsString(response);
-            var result = JsonConvert.DeserializeObject<AllChampions>(resultString);
+            var result = JsonConvert.DeserializeObject<Champions>(resultString);
             return result;
         }
+        public Items GetItems()
+        {
+            var url = BuildItemsUrl();
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Items>(resultString);
+            return result;
+        }
+
+
+
+
         public HttpResponseMessage Get(Uri uri)
         {
             HttpClient client = new HttpClient();
@@ -75,12 +88,24 @@ namespace LolMetrics.API.Factories
 
             return response;
         }
+        public string GetData(string summoner, string url)
+        {
+            Uri uri = new Uri(url + summoner + apiKey);
+            var response = Get(uri);
+            var result = ReadAsString(response);
+            return result.ToString();
+        }
         private static string ReadAsString(HttpResponseMessage msg)
         {
             var response = msg.Content.ReadAsStringAsync().Result;
 
             return response;
         }
+
+
+
+
+
         public static Uri BuildSummonerUrl(string summoner)
         {
             string getSummonerUrl = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/";
@@ -106,6 +131,19 @@ namespace LolMetrics.API.Factories
             string locale = "?locale=en_US&";
             string dataSort = "dataById=true&";
             Uri url = new Uri(getChampionUrl + locale + dataSort + apiKeyParams);
+            return url;
+        }
+        public static Uri BuildItemsUrl()
+        {
+            string getItemsUrl = "https://na1.api.riotgames.com/lol/static-data/v3/items";
+            string locale = "?locale=en_US&";
+            Uri url = new Uri(getItemsUrl + locale + apiKeyParams);
+            return url;
+        }
+        public static Uri BuildMatchInfoUrl(string id)
+        {
+            string getItemsUrl = "https://na1.api.riotgames.com/lol/match/v3/matches/";
+            Uri url = new Uri(getItemsUrl + apiKey);
             return url;
         }
     }
