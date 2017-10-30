@@ -59,6 +59,8 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.DeserializeObject<Matches>(resultString);
             return result;
         }
+
+
         public Champions GetChampions()
         {
             var url = BuildChampionUrl();
@@ -73,6 +75,14 @@ namespace LolMetrics.API.Factories
             var response = Get(url);
             var resultString = ReadAsString(response);
             var result = JsonConvert.DeserializeObject<Items>(resultString);
+            return result;
+        }
+        public Masteries GetMasteries()
+        {
+            var url = BuildMasteriesUrl();
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Masteries>(resultString);
             return result;
         }
 
@@ -146,5 +156,13 @@ namespace LolMetrics.API.Factories
             Uri url = new Uri(getItemsUrl + apiKey);
             return url;
         }
+        public static Uri BuildMasteriesUrl()
+        {
+            string getMasteriesUrl = "https://na1.api.riotgames.com/lol/static-data/v3/masteries";
+            string locale = "?locale=en_US&tags=all&";
+            Uri url = new Uri(getMasteriesUrl + locale + apiKeyParams);
+            return url;
+        }
+
     }
 }
