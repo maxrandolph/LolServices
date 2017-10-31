@@ -13,20 +13,20 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-be38cbac-21c1-4bab-98d5-bac7073f7b09";
-        static string apiKeyParams = "api_key=RGAPI-be38cbac-21c1-4bab-98d5-bac7073f7b09";
+        static string apiKey = "?api_key=RGAPI-cdf6efa4-5c2d-4cf0-b866-8d90646fd4f4";
+        static string apiKeyParams = "api_key=RGAPI-cdf6efa4-5c2d-4cf0-b866-8d90646fd4f4";
 
-        public string GetSummonerByName(string summoner)
+        public Summoner GetSummonerByName(string summoner)
         {
             var url = BuildSummonerUrl(summoner);
             var response = Get(url);
             var resultString = ReadAsString(response);
-            var result = JsonConvert.SerializeObject(resultString);
+            var result = JsonConvert.DeserializeObject<Summoner>(resultString);
             return result;
         }
         public Matches GetMatchesBySummoner(string summoner)
         {
-            Summoner tempSummoner = JsonConvert.DeserializeObject<Summoner>(GetSummonerByName(summoner));
+            Summoner tempSummoner = GetSummonerByName(summoner);
             var url = BuildMatchesUrl(tempSummoner.AccountId.ToString());
             var response = Get(url);
             var resultString = ReadAsString(response);

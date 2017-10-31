@@ -27,8 +27,10 @@ namespace LolMetrics.API.Controllers
         [HttpGet("{name}")]
         public string Get(string name)
         {
-            return JsonConvert.SerializeObject( myLogic.GetStaticData()).ToString();
+            return JsonConvert.SerializeObject( myLogic.GetMatchHistory(name)).ToString();
         }
+        // GET api/values/static
+        
 
         // POST api/values
         // [HttpPost]

@@ -9,10 +9,12 @@ namespace LolMetrics.API.BL
 {
     public class SummonerLogic
     {
-        public Matches GetMatchHistory(string summoner)
+        public Matches GetMatchHistory(string query)
         {
             var factory = new SummonerFactory();
-            var matches = factory.GetMatchesById(summoner);
+            var summoner = new Summoner();
+            summoner = factory.GetSummonerByName(query);
+            var matches = factory.GetMatchesById(summoner.AccountId.ToString());
             var champions = factory.GetChampions();
 
             foreach (Match match in matches.MatchStats)
