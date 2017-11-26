@@ -101,6 +101,14 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.DeserializeObject<Runes>(resultString);
             return result;
         }
+        public MapData GetMaps()
+        {
+            var url = BuildMapUrl();
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<MapData>(resultString);
+            return result;
+        }
 
 
 
@@ -190,6 +198,13 @@ namespace LolMetrics.API.Factories
         {
             string getMatchUrl = "https://na1.api.riotgames.com/lol/match/v3/matches/";
             Uri url = new Uri(getMatchUrl + id + apiKey);
+            return url;
+        }
+        public static Uri BuildMapUrl()
+        {
+            string getMatchUrl = "https://na1.api.riotgames.com/lol/static-data/v3/maps";
+            string locale = "?locale=en_US&";
+            Uri url = new Uri(getMatchUrl + locale + apiKeyParams);
             return url;
         }
 

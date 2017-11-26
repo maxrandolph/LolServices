@@ -25,10 +25,6 @@ namespace LolMetrics.API.BL
                     match.ChampionName = tempChampion.Name;
 
                 }
-                else
-                {
-                    continue;
-                }
            
             }
             return matches;
@@ -45,5 +41,18 @@ namespace LolMetrics.API.BL
 
             return staticData;
         }
+        //public MatchModel GetMatchModel(string id)
+        //{
+        //    var factory = new SummonerFactory();
+        //    var staticData = GetStaticData();
+        //    var matchModel = new MatchModel();
+        //    var match = factory.GetMatchById(id);
+
+        //    matchModel.Map = match.MapId.
+
+
+
+
+        //}
     }
 }
