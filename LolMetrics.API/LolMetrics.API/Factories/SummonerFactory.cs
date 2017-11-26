@@ -13,8 +13,8 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-cdf6efa4-5c2d-4cf0-b866-8d90646fd4f4";
-        static string apiKeyParams = "api_key=RGAPI-cdf6efa4-5c2d-4cf0-b866-8d90646fd4f4";
+        static string apiKey = "?api_key=RGAPI-42cf1e7f-ca64-4e52-90ce-b2698684390c";
+        static string apiKeyParams = "api_key=RGAPI-42cf1e7f-ca64-4e52-90ce-b2698684390c";
 
         public Summoner GetSummonerByName(string summoner)
         {
@@ -40,6 +40,14 @@ namespace LolMetrics.API.Factories
             var response = Get(url);
             var resultString = ReadAsString(response);
             var result = JsonConvert.DeserializeObject<Champion>(resultString);
+            return result;
+        }
+        public Match GetMatchById(string id)
+        {
+            var url = BuildMatchUrl(id);
+            var response = Get(url);
+            var resultString = ReadAsString(response);
+            var result = JsonConvert.DeserializeObject<Match>(resultString);
             return result;
         }
         public Matches GetMatchesById(string id)
@@ -160,8 +168,8 @@ namespace LolMetrics.API.Factories
         }
         public static Uri BuildMatchInfoUrl(string id)
         {
-            string getItemsUrl = "https://na1.api.riotgames.com/lol/match/v3/matches/";
-            Uri url = new Uri(getItemsUrl + apiKey);
+            string getMatchInfoUrl = "https://na1.api.riotgames.com/lol/match/v3/matches/";
+            Uri url = new Uri(getMatchInfoUrl + apiKey);
             return url;
         }
         public static Uri BuildMasteriesUrl()
@@ -176,6 +184,12 @@ namespace LolMetrics.API.Factories
             string getRunesUrl = "https://na1.api.riotgames.com/lol/static-data/v3/runes";
             string locale = "?locale=en_US&tags=all&";
             Uri url = new Uri(getRunesUrl + locale + apiKeyParams);
+            return url;
+        }
+           public static Uri BuildMatchUrl(string id)
+        {
+            string getMatchUrl = "https://na1.api.riotgames.com/lol/match/v3/matches/";
+            Uri url = new Uri(getMatchUrl + id + apiKey);
             return url;
         }
 

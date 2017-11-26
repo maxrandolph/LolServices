@@ -17,7 +17,7 @@ namespace LolMetrics.API.BL
             var matches = factory.GetMatchesById(summoner.AccountId.ToString());
             var champions = factory.GetChampions();
 
-            foreach (Match match in matches.MatchStats)
+            foreach (MatchReference match in matches.MatchStats)
             {
                 var tempChampion = new Champion();
                 if(champions.ChampionsList.TryGetValue(match.Champion.ToString(), out tempChampion))
