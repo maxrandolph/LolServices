@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using LolMetrics.API.Classes;
+using LolMetrics.API.Models;
 using LolMetrics.API.Factories;
 using Newtonsoft.Json;
 using LolMetrics.API.BL;

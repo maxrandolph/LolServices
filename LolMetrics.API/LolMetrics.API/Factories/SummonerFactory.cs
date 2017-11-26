@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
-using LolMetrics.API.Classes;
+using LolMetrics.API.Models;
 
 namespace LolMetrics.API.Factories
 {

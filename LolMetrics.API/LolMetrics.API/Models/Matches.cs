@@ -5,7 +5,7 @@ using System.Web;
 using Newtonsoft.Json;
 using LolMetrics.API.Factories;
 
-namespace LolMetrics.API.Classes
+namespace LolMetrics.API.Models
 {
     public class Matches
     {

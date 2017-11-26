@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LolMetrics.API.Classes;
+using LolMetrics.API.Models;
 using LolMetrics.API.Factories;
 
 namespace LolMetrics.API.BL
@@ -36,7 +36,7 @@ namespace LolMetrics.API.BL
         public StaticData GetStaticData()
         {
             var staticData = new StaticData();
-            var factory = new SummonerFactory();
+            var factory = new SummonerFactory();    
 
             staticData.Champions.Add(factory.GetChampions());
             staticData.Items.Add(factory.GetItems());

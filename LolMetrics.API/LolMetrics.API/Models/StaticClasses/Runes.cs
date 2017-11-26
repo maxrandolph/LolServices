@@ -4,15 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace LolMetrics.API.Classes
+namespace LolMetrics.API.Models
 {
-    public class Masteries
+    public class Runes
     {
     }
-    public class ChampionMastery
+    public class Rune
     {
-        [JsonProperty("masteryId")]
-        public int MasteryId { get; set; }
+        [JsonProperty("runeId")]
+        public int RuneId { get; set; }
         [JsonProperty("rank")]
         public int Rank { get; set; }
     }

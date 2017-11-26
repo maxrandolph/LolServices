@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace LolMetrics.API.Classes
+namespace LolMetrics.API.Models
 {
     public class MasteryList
     {
