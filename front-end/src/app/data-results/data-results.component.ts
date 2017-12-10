@@ -14,6 +14,7 @@ export class DataResultsComponent {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private _summonerService: SummonerService) { }
   summoner: Summoner = new Summoner('', '', '', '', '', '');
   result: any;
+  summonerName: string;
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit(): void {
@@ -21,7 +22,8 @@ export class DataResultsComponent {
     this.activatedRoute.params.subscribe(params => query = params['query']);
     console.log(query);
     this._summonerService.getSummoner(query.replace(/\s/g, '')).subscribe(data =>
-      this.processSummoner(data)
+      this.processSummoner(data),
+      this.summonerName = query
     );
   }
 
