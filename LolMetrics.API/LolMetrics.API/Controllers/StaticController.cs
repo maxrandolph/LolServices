@@ -21,5 +21,10 @@ namespace LolMetrics.API.Controllers
         {
             return JsonConvert.SerializeObject(myLogic.GetStaticData()).ToString();
         }
+        [HttpGet("{name}")]
+        public string GetMatchHisotry(string name)
+        {
+            return JsonConvert.SerializeObject(myLogic.GetMatchHistory(name)).ToString();
+        }
     }
 }

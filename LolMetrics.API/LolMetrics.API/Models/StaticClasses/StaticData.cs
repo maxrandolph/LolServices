@@ -9,15 +9,17 @@ namespace LolMetrics.API.Models
     {
         public StaticData()
         {
-            Items = new List<Items>();
-            Runes = new List<Runes>();
-            Champions = new List<Champions>();
-            Masteries = new List<MasteryList>();
+            Items = new Items();
+            Runes = new Runes();
+            Champions = new Champions();
+            Masteries = new MasteryList();
+            Maps = new MapData();
         }
-        public List<Items> Items { get; set; }
-        public List<Runes> Runes { get; set; }
-        public List<Champions> Champions { get; set; }
-        public List<MasteryList> Masteries { get; set; }
+        public Items Items { get; set; }
+        public Runes Runes { get; set; }
+        public Champions Champions { get; set; }
+        public MasteryList Masteries { get; set; }
+        public MapData Maps { get; set; }
 
     }
 }

@@ -7,6 +7,7 @@ using LolMetrics.API.Models;
 using LolMetrics.API.Factories;
 using Newtonsoft.Json;
 using LolMetrics.API.BL;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace LolMetrics.API.Controllers
 {
@@ -15,7 +16,8 @@ namespace LolMetrics.API.Controllers
     {
         SummonerFactory myFactory = new SummonerFactory();
         SummonerLogic myLogic = new SummonerLogic();
-        
+
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()

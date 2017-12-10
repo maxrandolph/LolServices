@@ -13,8 +13,8 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-42cf1e7f-ca64-4e52-90ce-b2698684390c";
-        static string apiKeyParams = "api_key=RGAPI-42cf1e7f-ca64-4e52-90ce-b2698684390c";
+        static string apiKey = "?api_key=RGAPI-a232f8e0-cf27-492e-90c8-3d227ca61bdc";
+        static string apiKeyParams = "api_key=RGAPI-a232f8e0-cf27-492e-90c8-3d227ca61bdc";
 
         public Summoner GetSummonerByName(string summoner)
         {
