@@ -24,7 +24,7 @@ namespace LolMetrics.API.Models
         public int inhibitorKills { get; set; }
         public int towerKills { get; set; }
         public int dominionVictoryScore { get; set; }
-        public int win { get; set; }
+        public string win { get; set; }
         public int dragonKills { get; set; }
     }
     public class TeamBans

@@ -8,7 +8,7 @@ export class SummonerService {
 
   constructor(private _http: Http) { }
   getSummoner(name: string): Observable<Summoner> {
-    return this._http.get(AppConfig.API_URL + '/values/' + name)
+    return this._http.get(AppConfig.API_URL + 'values/' + name)
       .map(function (res) {
         return <Summoner>res.json();
       });

@@ -12,6 +12,7 @@ namespace LolMetrics.API.BL
     public class SummonerLogic
     {
         private Caching cache = new Caching();
+        //this gets called on any intial summoner search
         public Matches GetMatchHistory(string query)
         {
             var factory = new SummonerFactory();
@@ -32,10 +33,39 @@ namespace LolMetrics.API.BL
                 }
            
             }
+            matches = GetMatchDetails(query, matches, summoner.Id);
             return matches;
+        }
+
+        //using this to grab match details and put them directly into the Matches object
+        public Matches GetMatchDetails(string query, Matches matches, long summonerId)
+        {
+            var factory = new SummonerFactory();
+            foreach (var match in matches.MatchStats)
+            {
+                match.MatchDetails= factory.GetMatchInfoById(match.GameId.ToString());
+
+                //doing a time conversion
+                TimeSpan gameTime = TimeSpan.FromSeconds(match.MatchDetails.GameDuration);
+                match.MatchDetails.Time = gameTime.ToString();
+
+
+                //probably going to want to modularize this at some point: getting the kda here
+                var identity = match.MatchDetails.Identities.Where(x => x.Player.SummonerId == summonerId).FirstOrDefault();
+                var stats = match.MatchDetails.Participants.Where(x => x.ParticipantId == identity.ParticipantId).FirstOrDefault();
+                var kdaLong = stats.Stats.Kills.ToString() + "/" + stats.Stats.Deaths.ToString() + "/" + stats.Stats.Assists.ToString();
+                decimal kdaShort = Math.Round((Convert.ToDecimal(stats.Stats.Kills) + Convert.ToDecimal(stats.Stats.Assists))/stats.Stats.Deaths,2);
+                match.MatchDetails.KdaLong = kdaLong;
+                match.MatchDetails.KdaShort = kdaShort.ToString();
+                                
+            }
+
+            return matches;
+
         }
         public StaticData GetStaticData()
         {
+            //requests to static endpoint are capped, so always check for caching of data
             if (cache.DoesFileExist())
             {
                 var temp = cache.CacheGet();

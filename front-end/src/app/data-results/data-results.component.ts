@@ -8,7 +8,8 @@ import { SummonerService } from '../summoner.service';
 
 @Component({
   selector: 'app-data-results',
-  templateUrl: './data-results.component.html'
+  templateUrl: './data-results.component.html',
+  styleUrls: ['./data-results.component.css']
 })
 export class DataResultsComponent {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private _summonerService: SummonerService) { }

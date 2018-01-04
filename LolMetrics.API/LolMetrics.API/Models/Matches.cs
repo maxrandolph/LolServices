@@ -21,6 +21,10 @@ namespace LolMetrics.API.Models
 
     public class MatchReference
     {
+        public MatchReference()
+        {
+            MatchDetails = new Match();
+        }
         [JsonProperty("lane")]
         public string Lane { get; set; }
         [JsonProperty("gameId")]
@@ -38,9 +42,14 @@ namespace LolMetrics.API.Models
         [JsonProperty("timestamp")]
         public long Timestamp { get; set; }
         public string ChampionName { get; set; }
+        public Match MatchDetails { get; set; }
     }
     public class Match
     {
+        public Match()
+        {
+            Time = "00.00";
+        }
         [JsonProperty("seasonId")]
         public int SeasonId { get; set; }
         [JsonProperty("queueId")]
@@ -67,5 +76,8 @@ namespace LolMetrics.API.Models
         public List<TeamStats> Teams { get; set; }
         [JsonProperty("gameCreation")]
         public long GameCreation { get; set; }
+        public string Time { get; set; }
+        public string KdaLong { get; set; }
+        public string KdaShort { get; set; }
     }
 }

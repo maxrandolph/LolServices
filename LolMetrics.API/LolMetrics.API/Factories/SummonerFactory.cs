@@ -13,8 +13,8 @@ namespace LolMetrics.API.Factories
 {
     public class SummonerFactory
     {
-        static string apiKey = "?api_key=RGAPI-a232f8e0-cf27-492e-90c8-3d227ca61bdc";
-        static string apiKeyParams = "api_key=RGAPI-a232f8e0-cf27-492e-90c8-3d227ca61bdc";
+        static string apiKey = "?api_key=RGAPI-d067caf0-6f7e-41ef-afcc-512eb14d7196";
+        static string apiKeyParams = "api_key=RGAPI-d067caf0-6f7e-41ef-afcc-512eb14d7196";
 
         public Summoner GetSummonerByName(string summoner)
         {
@@ -50,21 +50,22 @@ namespace LolMetrics.API.Factories
             var result = JsonConvert.DeserializeObject<Match>(resultString);
             return result;
         }
-        public Matches GetMatchesById(string id)
+        public Matches GetMatchesById(string id, bool isRecent=true)
         {
-            var url = BuildMatchesUrl(id);
+            
+            var url = isRecent==true? BuildRecentMatchesUrl(id) : BuildMatchesUrl(id);
             var response = Get(url);
             var resultString = ReadAsString(response);
             var result = JsonConvert.DeserializeObject<Matches>(resultString);
             return result;
         }
 
-        public Matches GetMatchesInfoById(string id)
+        public Match GetMatchInfoById(string id)
         {
-            var url = BuildMatchesUrl(id);
+            var url = BuildMatchInfoUrl(id);
             var response = Get(url);
             var resultString = ReadAsString(response);
-            var result = JsonConvert.DeserializeObject<Matches>(resultString);
+            var result = JsonConvert.DeserializeObject<Match>(resultString);
             return result;
         }
 
@@ -152,6 +153,13 @@ namespace LolMetrics.API.Factories
             Uri url = new Uri(getMatchesUrl + summonerId + apiKey);
             return url;
         }
+        public static Uri BuildRecentMatchesUrl(string summonerId)
+        {
+            string getMatchesUrl = "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/";
+            Uri url = new Uri(getMatchesUrl + summonerId + "/recent" + apiKey);
+            return url;
+        }
+
         public static Uri BuildChampionUrl(int id)
         {
             string getChampionUrl = "https://na1.api.riotgames.com/lol/static-data/v3/champions/";
@@ -177,7 +185,7 @@ namespace LolMetrics.API.Factories
         public static Uri BuildMatchInfoUrl(string id)
         {
             string getMatchInfoUrl = "https://na1.api.riotgames.com/lol/match/v3/matches/";
-            Uri url = new Uri(getMatchInfoUrl + apiKey);
+            Uri url = new Uri(getMatchInfoUrl + id + apiKey);
             return url;
         }
         public static Uri BuildMasteriesUrl()
