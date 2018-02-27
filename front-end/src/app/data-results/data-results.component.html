@@ -1,3 +1,73 @@
-<mat-card>
-  {{summoner}}
-</mat-card>
+<div fxLayout="column" fxFlex="50%" style="height:400px; margin-left:auto; margin-right:auto;">
+  <h2 style="text-align:center;" *ngIf="query != ''">Summoner Name: {{summonerName}}</h2>
+  <mat-card style="margin-top:25px;" *ngFor="let match of summoner.matches" >
+    <mat-card-header>
+      <img src="https://ddragon.leagueoflegends.com/cdn/7.10.1/img/champion/{{match.ChampionName}}.png">
+      <mat-card-title>
+        timestamp
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{match.MatchDetails.Time}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>
+          {{match.MatchDetails.KdaLong}}
+      </h1>
+      <h2>
+         KDA: {{match.MatchDetails.KdaShort}}
+      </h2>
+
+        <mat-list style="float:left;  list-style-type: none" >
+          <li>
+            {{match.MatchDetails.gameMode}}
+          </li>
+          <li>
+            {{match.lane}}
+          </li>
+          <li>
+            {{match.timestamp | date}}
+          </li>
+          <li>
+            {{match.role}}
+          </li>
+        </mat-list>
+        <mat-list style="margin-left: 20%; float: left">
+        <li>
+          {{match.MatchDetails.participantIdentities[0].player.summonerName}}
+        </li>
+        <li>
+            {{match.MatchDetails.participantIdentities[1].player.summonerName}}
+          </li>
+        <li>
+            {{match.MatchDetails.participantIdentities[2].player.summonerName}}
+          </li>
+        <li>
+            {{match.MatchDetails.participantIdentities[3].player.summonerName}}
+          </li>
+          <li>
+              {{match.MatchDetails.participantIdentities[4].player.summonerName}}
+            </li>
+        </mat-list>
+        <mat-list style="margin-left:20%; float:left">
+            <li>
+              {{match.MatchDetails.participantIdentities[5].player.summonerName}}
+            </li>
+            <li>
+                {{match.MatchDetails.participantIdentities[6].player.summonerName}}
+              </li>
+            <li>
+                {{match.MatchDetails.participantIdentities[7].player.summonerName}}
+              </li>
+            <li>
+                {{match.MatchDetails.participantIdentities[8].player.summonerName}}
+              </li>
+              <li>
+                  {{match.MatchDetails.participantIdentities[9].player.summonerName}}
+                </li>
+            </mat-list>
+
+    
+    </mat-card-content>
+  </mat-card>
+</div>

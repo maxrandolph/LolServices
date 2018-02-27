@@ -1,5 +1,5 @@
 export let AppConfig = {
-    API_URL: 'http://localhost:5000/api/',
+    API_URL: 'http://localhost:64559/api/',
 };
 export class Summoner {
     constructor(

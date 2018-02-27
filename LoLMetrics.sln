@@ -5,12 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoLMetrics", "LoLMetrics\LoLMetrics.csproj", "{8115CE03-36F8-40CF-AFAA-227B94091F87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricsForms", "MetricsForms\MetricsForms.csproj", "{7AB5B8F6-B07C-435D-B1B4-1B57F2C5D5F0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8115CE03-36F8-40CF-AFAA-227B94091F87} = {8115CE03-36F8-40CF-AFAA-227B94091F87}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LolMetrics.API", "LolMetrics.API\LolMetrics.API\LolMetrics.API.csproj", "{547A3279-1045-4DA2-A7C6-F02431DA3DD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LolMetrics.API", "LolMetrics.API\LolMetrics.API\LolMetrics.API.csproj", "{547A3279-1045-4DA2-A7C6-F02431DA3DD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,13 +14,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8115CE03-36F8-40CF-AFAA-227B94091F87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8115CE03-36F8-40CF-AFAA-227B94091F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8115CE03-36F8-40CF-AFAA-227B94091F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8115CE03-36F8-40CF-AFAA-227B94091F87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7AB5B8F6-B07C-435D-B1B4-1B57F2C5D5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7AB5B8F6-B07C-435D-B1B4-1B57F2C5D5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7AB5B8F6-B07C-435D-B1B4-1B57F2C5D5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7AB5B8F6-B07C-435D-B1B4-1B57F2C5D5F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{547A3279-1045-4DA2-A7C6-F02431DA3DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{547A3279-1045-4DA2-A7C6-F02431DA3DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547A3279-1045-4DA2-A7C6-F02431DA3DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
